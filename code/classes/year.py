@@ -2,7 +2,6 @@
 from classes.module import Module
 # importation de la classe Note pour creation de la liste des etudiantspour chaque section
 from classes.student import Student
-
 class Year:
     def __init__(self, name):
         self.name = name
@@ -31,6 +30,6 @@ class Year:
             print("Erreur : l'objet doit être une instance de la classe Module.")
 
     # Liste des moyennes calculées par le chief de departement 
-    def addMark(self,chefDep):
+    def addMark(self,depChief):
         # appeller la fct calculAvg qui est dans la classe ChiefDepartement
-        chefDep.calculAvg(self)
+        depChief.calculAvg(self)
