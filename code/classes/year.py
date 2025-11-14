@@ -33,3 +33,36 @@ class Year:
     def addMark(self,depChief):
         # appeller la fct calculAvg qui est dans la classe ChiefDepartement
         depChief.calculAvg(self)
+
+    # supprimer un etudiant de la liste des etudiant d'un year
+    def removeStudent(self,student):
+        self.listOfStudents.remove(student)
+    
+    # fonction pour reccuperer la moyenne d'un etudiant 
+    def getAvg (self,student):
+        # chercher la moyenne de l'etudiant dans la liste des moyennes par son nom
+        for (stud, avg ) in self.listOfMarks :
+            if (stud == student) :
+                return avg # reccuperer la moyenne 
+        return None
+        
+    # fonction pour envoyer un etudiant a un niv supperieur
+    def sendStudentToNextYear(self,student, nextYear):
+        # reccuperer la moyenne de l'etudiant
+        average = self.getAvg(student)
+        # verifier si l'etudiant peut passer au year suivant
+        if (average is None) : 
+           # si aucune moyenne n'est retrouvée
+           print("Impossible de passer au next year: la moyenne de l'etudiant n'est pas calculé")
+           return 
+        elif (average < 10):
+            print(f"Impossible de passer au year suivant: L'etudiant n'a pas de moyenne minimal (moyenne = {average})")
+            return
+        else:
+            # supprimer l'etudiant de la liste des etudiant du year actuel
+            if (student in self.listOfStudents):
+                self.removeStudent(student)
+            # ajouter l"etudiant aà la liste des etudiants du next year
+            nextYear.addStudent(student)
+            print(f"{student.name} est passé de {self.name} à {nextYear.name}")
+           
