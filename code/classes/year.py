@@ -29,14 +29,8 @@ class Year:
         else: 
             # l'entree n'est pas un etudiant
             print("Erreur : l'objet doit être une instance de la classe Module.")
-"""
+
     # Liste des moyennes calculées par le chief de departement 
-    def addMark(self,mark):
-        # on verifie si l'entree d'utilisateur est bien un objet de la classe Student
-        if (isinstance(mark,Module)):
-            # ajout de l'etudiant' a la liste des etudiants
-            self.listOfMarks.append(mark) 
-        else: 
-            # l'entree n'est pas un etudiant
-            print("Erreur : l'objet doit être une instance de la classe Module.")
-"""
+    def addMark(self,chefDep):
+        # appeller la fct calculAvg qui est dans la classe ChiefDepartement
+        chefDep.calculAvg(self)
