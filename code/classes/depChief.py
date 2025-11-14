@@ -18,5 +18,5 @@ class DepChief(Person):
                 average = total / totalCoef
             else:
                 average = 0
-            # remplir la liste des moyenne de year
-            year.listOfMarks.append((student.name, average))
+            # remplir la liste des moyenne de year par l'objet student pas seulement son nom
+            year.listOfMarks.append((student, average))
