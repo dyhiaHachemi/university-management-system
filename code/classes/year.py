@@ -76,7 +76,7 @@ class Year:
         else:
             # pour chaque etudiant de la liste des etudiants
             for student in self.listOfStudents :
-                print(f"- {student} \n") # appel de la fct __str__ de la classe Student
+                print(f"{student} \n") # appel de la fct __str__ de la classe Student
     
     # affichage de la liste des modules
     def displayModules(self):

@@ -31,7 +31,7 @@ class Student(Person):
 
     # affichage de la liste des notes
     def displayNotes(self):
-        print(f"Les notes de {self.name}:")
+        print(f"- Les notes de {self.name}:")
         # verifier si la liste n'est pas vide
         if (not self.notes): 
             print("Aucune note disponible.")

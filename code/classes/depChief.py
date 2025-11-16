@@ -9,7 +9,7 @@ class DepChief(Person):
 
     # représentation en chaîne de caractères d'un objet
     def __str__(self):
-        return (f" - Nom du Chef de Departement: {self.name} \n Email: {self.email} \n Numero de Telephone: {self.phoneNumber}")
+        return (f" - Nom: {self.name} \n Email: {self.email} \n Numero de Telephone: {self.phoneNumber}")
     
     # fonction pour le calcul etle remplissage de la liste des moyennes
     def calculAvg(self,year):
