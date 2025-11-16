@@ -3,6 +3,10 @@ classe DepChief calcul la moyenne des etudiants
 """
 from classes.person import Person
 class DepChief(Person):
+    def __init__(self, name, email, phoneNumber):
+        # initialiser les attributs de la classe parente Person
+        super().__init__(name, email, phoneNumber)
+    # fonction pour le calcul etle remplissage de la liste des moyennes
     def calculAvg(self,year):
         year.listOfMarks = [] # vides la liste des moyennes avant de recaluler pour chaque year
         # on calcul la moyenne pour chaque etudiant d'un year
@@ -20,3 +24,4 @@ class DepChief(Person):
                 average = 0
             # remplir la liste des moyenne de year par l'objet student pas seulement son nom
             year.listOfMarks.append((student, average))
+
