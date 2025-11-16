@@ -64,5 +64,39 @@ class Year:
                 self.removeStudent(student)
             # ajouter l"etudiant aà la liste des etudiants du next year
             nextYear.addStudent(student)
-            print(f"{student.name} est passé de {self.name} à {nextYear.name}")
-           
+            print(f"{student.name} est passe de {self.name} a {nextYear.name}")
+    
+    # affichage de la liste des etudiants
+    def displayStudents(self):
+        print(f"La liste des etudiants de la section {self.name}:")
+        # verifier si la liste n'est pas vide
+        if (not self.listOfStudents): 
+            print("Aucun étudiant disponible.")
+            return
+        else:
+            # pour chaque etudiant de la liste des etudiants
+            for student in self.listOfStudents :
+                print(f"- {student} \n") # appel de la fct __str__ de la classe Student
+    
+    # affichage de la liste des modules
+    def displayModules(self):
+        print(f"La liste des modules de la section {self.name}:")
+        # verifier si la liste n'est pas vide
+        if (not self.listOfModules): 
+            print("Aucun module disponible.")
+            return
+        else:
+            # pour chaque etudiant de la liste des etudiants
+            for module in self.listOfModules :
+                print(f"- {module}") # appel de la fct __str__ de la classe Student
+
+    # affichage de la liste des moyennes
+    def displayMarks(self):
+        print(f"Les moyennes des étudiants de la section {self.name} :")
+        # vérifier si la liste est vide
+        if (not self.listOfMarks):
+            print("Aucune moyenne calculée pour le moment.")
+            return
+        # afficher toutes les moyennes
+        for (student, avg) in self.listOfMarks:
+            print(f" - {student.name} : {avg:.2f}")    
