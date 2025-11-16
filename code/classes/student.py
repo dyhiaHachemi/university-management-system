@@ -17,7 +17,7 @@ class Student(Person):
         
     # représentation en chaîne de caractères d'un objet
     def __str__(self):
-        return (f"Etudiant: {self.name} \n Addresse: {self.address} \n Email: {self.email} \n Numero de Telephone: {self.phoneNumber}")
+        return (f"- Etudiant: {self.name} \n Addresse: {self.address} \n Email: {self.email} \n Numero de Telephone: {self.phoneNumber}")
     
     # Liste des notes
     def addNote(self,note):

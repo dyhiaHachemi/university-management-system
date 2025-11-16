@@ -56,7 +56,7 @@ class Year:
            print("Impossible de passer au next year: la moyenne de l'etudiant n'est pas calculé")
            return 
         elif (average < 10):
-            print(f"Impossible de passer au year suivant: L'etudiant n'a pas de moyenne minimal (moyenne = {average})")
+            print(f"Impossible de passer au year suivant: L'etudiant n'a pas de moyenne minimale (moyenne = {average})")
             return
         else:
             # supprimer l'etudiant de la liste des etudiant du year actuel
@@ -71,7 +71,7 @@ class Year:
         print(f"La liste des etudiants de la section {self.name}:")
         # verifier si la liste n'est pas vide
         if (not self.listOfStudents): 
-            print("Aucun étudiant disponible.")
+            print("Aucun etudiant disponible.")
             return
         else:
             # pour chaque etudiant de la liste des etudiants
@@ -92,10 +92,10 @@ class Year:
 
     # affichage de la liste des moyennes
     def displayMarks(self):
-        print(f"Les moyennes des étudiants de la section {self.name} :")
+        print(f"Les moyennes des etudiants de la section {self.name} :")
         # vérifier si la liste est vide
         if (not self.listOfMarks):
-            print("Aucune moyenne calculée pour le moment.")
+            print("Aucune moyenne calculee pour le moment.")
             return
         # afficher toutes les moyennes
         for (student, avg) in self.listOfMarks:
