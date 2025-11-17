@@ -4,6 +4,7 @@ from classes.note import Note
 from classes.student import Student
 from classes.year import Year
 from classes.depChief import DepChief
+from classes.departement import Departement
 
 if __name__ == "__main__":
     
@@ -114,3 +115,15 @@ if __name__ == "__main__":
     # affichage de la liste des etudiants apres pasasge d'un etudiant au next year
     l2.displayStudents()
     l3.displayStudents()
+
+    # teste de la classe Departement
+    # creation d'un departement
+    depInfo = Departement("Departement d'informatique" , chef)
+    # affichage du departement
+    print(depInfo)
+    # ajout des sections a leur departement
+    depInfo.addYear(l1)
+    depInfo.addYear(l2)
+    depInfo.addYear(l3)
+    # affichage de a liste des sections par departement
+    depInfo.displayYears()
