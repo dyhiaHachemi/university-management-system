@@ -1,4 +1,3 @@
-from classes.depChief import DepChief
 from classes.year import Year
 
 class Departement():
@@ -9,7 +8,7 @@ class Departement():
     
     # représentation en chaîne de caractères d'un objet
     def __str__(self):
-        return (f" - Nom: {self.name} \n Chef de departement: {self.depChief}")
+        return (f" - Nom: {self.name} \n Chef de departement: {self.depChief.name}")
     
     # Ajout d'un year a la liste
     def addYear(self,year):
