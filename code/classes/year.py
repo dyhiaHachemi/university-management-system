@@ -9,6 +9,10 @@ class Year:
         self.listOfModules = []
         self.listOfMarks = []
 
+    # représentation en chaîne de caractères d'un objet
+    def __str__(self):
+        return (f"- Section: {self.name} ")
+    
     # Liste des etudiants
     def addStudent(self,student):
         # on verifie si l'entree d'utilisateur est bien un objet de la classe Student
