@@ -5,6 +5,8 @@ from classes.student import Student
 from classes.year import Year
 from classes.depChief import DepChief
 from classes.departement import Departement
+from classes.faculty import Faculty
+from classes.facDirector import FacDir
 
 if __name__ == "__main__":
     
@@ -62,7 +64,9 @@ if __name__ == "__main__":
     l1 = Year("L1 Informatique")
     l2 = Year("L2 Informatique")
     l3 = Year("L3 Informatique")
-
+    m1 = Year("M1 Reseaux")
+    m2 = Year("M2 Reseaux")
+    
     # ajout des etudiants et modules aux differentes sections
     l1.addModule(module1)
     l1.addModule(module2)
@@ -90,16 +94,18 @@ if __name__ == "__main__":
 
     # teste de la classe DepChief
     # creation d'un Chef de département
-    chef = DepChief("Dr. Karim", "karim@univ.dz","0765432345")
+    chefDepInfo = DepChief("Dr. Karim","0765432345", "karim@univ.dz")
+    chefDepRsx = DepChief("Dr. Zinedine","0706732345", "zinedine@univ.dz")
+    chefDep = DepChief("Dr. El'hocine","0706732116", "elhocine@univ.dz")
     # affichage de information du chef de departement
     print("Chef de departement: ")
-    print(chef)
+    print(chefDepInfo)
     print("--------------------")
 
     # remplissage de la liste des moyennes 
-    chef.calculAvg(l1)
-    chef.calculAvg(l2)
-    chef.calculAvg(l3)
+    chefDepInfo.calculAvg(l1)
+    chefDepInfo.calculAvg(l2)
+    chefDepInfo.calculAvg(l3)
     # affichage des listes moyennes calculées
     print("liste des moyennes de chaque section:")
     l1.displayMarks()
@@ -115,15 +121,66 @@ if __name__ == "__main__":
     # affichage de la liste des etudiants apres pasasge d'un etudiant au next year
     l2.displayStudents()
     l3.displayStudents()
+    print("--------------------")
 
     # teste de la classe Departement
     # creation d'un departement
-    depInfo = Departement("Departement d'informatique" , chef)
+    depInfo = Departement("Departement d'informatique" , chefDepInfo)
+    depRsx = Departement("Departement de reseaux" , chefDepRsx)
     # affichage du departement
     print(depInfo)
+    print(depRsx)
+    print("--------------------")
+
     # ajout des sections a leur departement
     depInfo.addYear(l1)
     depInfo.addYear(l2)
     depInfo.addYear(l3)
+    depRsx.addYear(m1)
+    depRsx.addYear(m2)
     # affichage de a liste des sections par departement
     depInfo.displayYears()
+    depRsx.displayYears()
+    print("--------------------")
+
+    # teste de la classe FacDir
+    # creation d'un directeur de fac
+    dirFgei = FacDir("Dr. Thanina", "0706712445","thanina@univ.dz",None) # a l'initialisation le directeur n'est pas affecté a une faculte
+    #affichage du directeur de la fac
+    print(dirFgei)
+    print("--------------------")
+    
+    # teste de la classe Faculty
+    # creation de faculty
+    fgei = Faculty("Faculty de genie electrique et d'informatique",dirFgei)
+    print(fgei)
+    print("--------------------")
+    # lier la faculte a un directeur
+    print("Lier la faculte au directeur:")
+    dirFgei.faculty = fgei
+    # affichage du directeur de la fac
+    print(dirFgei)
+    print("--------------------")
+    # ajouter les departements a la liste des dep
+    fgei.addDep(depInfo)
+    fgei.addDep(depRsx)
+    # afficher la liste des dep
+    fgei.displayDep()
+    print("--------------------")
+    # suppression d'un dep
+    print("Suppression d'un departement")
+    fgei.removeDep(depRsx)
+    fgei.displayDep()
+    print("--------------------")
+    # set un chief au departement
+    print("Modifier le chef de departement")
+    dirFgei.setDepChief(chefDep,depInfo.name)
+    # affichage des resultats apres modification du chef de departement
+    print(depInfo)
+    print("--------------------")
+
+    
+    
+
+    
+
