@@ -3,9 +3,9 @@
 """
 
 class Person:
-    def __init__(self, name, phoneNumber, email):
+    def __init__(self, name, phone_number, email):
         self.name = name
-        self.phoneNumber = phoneNumber
+        self.phone_number = phone_number
         self.email = email
 
     

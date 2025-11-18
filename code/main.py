@@ -36,14 +36,14 @@ if __name__ == "__main__":
     etudiant4 = Student("Tizi-Ouzou","Sabrinel", "sabrinel@mail.com", "0725542359")
 
     # ajout des notes a la liste des notes 
-    etudiant1.addNote(note1)
-    etudiant1.addNote(note2)
-    etudiant2.addNote(Note(14,module1))
-    etudiant2.addNote(Note(16,module2))
-    etudiant3.addNote(Note(10,module1))
-    etudiant3.addNote(Note(12,module2))
-    etudiant4.addNote(Note(6,module1))
-    etudiant4.addNote(Note(1,module2))
+    etudiant1.add_note(note1)
+    etudiant1.add_note(note2)
+    etudiant2.add_note(Note(14,module1))
+    etudiant2.add_note(Note(16,module2))
+    etudiant3.add_note(Note(10,module1))
+    etudiant3.add_note(Note(12,module2))
+    etudiant4.add_note(Note(6,module1))
+    etudiant4.add_note(Note(1,module2))
 
     # affichage des informations de etudiants crées
     print("Liste des etudiants:")
@@ -55,10 +55,10 @@ if __name__ == "__main__":
 
     # affichage de la liste des notes 
     print("Liste des notes:")
-    etudiant1.displayNotes()
-    etudiant2.displayNotes()
-    etudiant3.displayNotes()
-    etudiant4.displayNotes()
+    etudiant1.display_notes()
+    etudiant2.display_notes()
+    etudiant3.display_notes()
+    etudiant4.display_notes()
     print("--------------------")
 
     # teste de la classe Year
@@ -70,125 +70,125 @@ if __name__ == "__main__":
     m2 = Year("M2 Reseaux")
     
     # ajout des etudiants et modules aux differentes sections
-    l1.addModule(module1)
-    l1.addModule(module2)
-    l1.addStudent(etudiant1)
-    l1.addStudent(etudiant2)
-    l2.addStudent(etudiant3)
-    l2.addStudent(etudiant4)
+    l1.add_module(module1)
+    l1.add_module(module2)
+    l1.add_student(etudiant1)
+    l1.add_student(etudiant2)
+    l2.add_student(etudiant3)
+    l2.add_student(etudiant4)
 
     # afficher liste des etudiants de chaque section
     print("Liste des etudiants de chaque section:")
-    l1.displayStudents()
+    l1.display_students()
     print("--------------------")
-    l2.displayStudents()
+    l2.display_students()
     print("--------------------")
-    l3.displayStudents()
+    l3.display_students()
     print("--------------------")
 
     # supprimer un etudiant 
     print("Suppression de l'etudiant: ",etudiant1.name ) 
-    l1.removeStudent(etudiant1)
+    l1.remove_student(etudiant1)
     print("--------------------")
     # afficher la liste des etudiants de la section apres suppression
-    l1.displayStudents()
+    l1.display_students()
     print("--------------------")
 
     # teste de la classe DepChief
     # creation d'un Chef de département
-    chefDepInfo = DepChief("Dr. Karim","0765432345", "karim@univ.dz")
-    chefDepRsx = DepChief("Dr. Zinedine","0706732345", "zinedine@univ.dz")
-    chefDep = DepChief("Dr. El'hocine","0706732116", "elhocine@univ.dz")
-    chefDepMath = DepChief("Dr. Lylia","0706732234", "lylia@univ.dz")
+    chef_dep_info = DepChief("Dr. Karim","0765432345", "karim@univ.dz")
+    chef_dep_rsx = DepChief("Dr. Zinedine","0706732345", "zinedine@univ.dz")
+    chef_dep = DepChief("Dr. El'hocine","0706732116", "elhocine@univ.dz")
+    chef_dep_math = DepChief("Dr. Lylia","0706732234", "lylia@univ.dz")
     # affichage de information du chef de departement
     print("Chef de departement: ")
-    print(chefDepInfo)
+    print(chef_dep_info)
     print("--------------------")
 
     # remplissage de la liste des moyennes 
-    chefDepInfo.calculAvg(l1)
-    chefDepInfo.calculAvg(l2)
-    chefDepInfo.calculAvg(l3)
+    chef_dep_info.calcul_avg(l1)
+    chef_dep_info.calcul_avg(l2)
+    chef_dep_info.calcul_avg(l3)
     # affichage des listes moyennes calculées
     print("liste des moyennes de chaque section:")
-    l1.displayMarks()
+    l1.display_marks()
     print("--------------------")
-    l2.displayMarks()
+    l2.display_marks()
     print("--------------------")
-    l3.displayMarks()
+    l3.display_marks()
     print("--------------------")
  
     # passer un etudiant au next year
-    l2.sendStudentToNextYear(etudiant4, l3)
+    l2.send_student_to_next_year(etudiant4, l3)
     print("--------------------")
     # affichage de la liste des etudiants apres pasasge d'un etudiant au next year
-    l2.displayStudents()
-    l3.displayStudents()
+    l2.display_students()
+    l3.display_students()
     print("--------------------")
 
     # teste de la classe Departement
     # creation d'un departement
-    depInfo = Departement("Departement d'informatique" , chefDepInfo)
-    depRsx = Departement("Departement de reseaux" , chefDepRsx)
-    depMath = Departement("Departement de Mathematique" , chefDepMath)
+    dep_info = Departement("Departement d'informatique" , chef_dep_info)
+    dep_rsx = Departement("Departement de reseaux" , chef_dep_rsx)
+    dep_math = Departement("Departement de Mathematique" , chef_dep_math)
     # affichage du departement
-    print(depInfo)
-    print(depRsx)
-    print(depMath)
+    print(dep_info)
+    print(dep_rsx)
+    print(dep_math)
     print("--------------------")
 
     # ajout des sections a leur departement
-    depInfo.addYear(l1)
-    depInfo.addYear(l2)
-    depInfo.addYear(l3)
-    depRsx.addYear(m1)
-    depRsx.addYear(m2)
+    dep_info.add_year(l1)
+    dep_info.add_year(l2)
+    dep_info.add_year(l3)
+    dep_rsx.add_year(m1)
+    dep_rsx.add_year(m2)
     # affichage de a liste des sections par departement
-    depInfo.displayYears()
-    depRsx.displayYears()
+    dep_info.display_years()
+    dep_rsx.display_years()
     print("--------------------")
 
     # teste de la classe FacDir
     # creation d'un directeur de fac
-    dirFgei = FacDir("Dr. Thanina", "0706712445","thanina@univ.dz",None) # a l'initialisation le directeur n'est pas affecté a une faculte
-    dirFs = FacDir("Dr. Lyna", "0767812445","lyna@univ.dz",None)
+    dir_fgei = FacDir("Dr. Thanina", "0706712445","thanina@univ.dz",None) # a l'initialisation le directeur n'est pas affecté a une faculte
+    dir_fs = FacDir("Dr. Lyna", "0767812445","lyna@univ.dz",None)
     #affichage du directeur de la fac
-    print(dirFgei)
-    print(dirFs)
+    print(dir_fgei)
+    print(dir_fs)
     print("--------------------")
     
     # teste de la classe Faculty
     # creation de faculty
-    fgei = Faculty("Faculty de genie electrique et d'informatique",dirFgei)
-    fs = Faculty("Faculty des sciences",dirFs)
+    fgei = Faculty("Faculty de genie electrique et d'informatique",dir_fgei)
+    fs = Faculty("Faculty des sciences",dir_fs)
     print(fgei)
     print("--------------------")
     # lier la faculte a un directeur
     print("Lier la faculte au directeur:")
-    dirFgei.faculty = fgei
-    dirFs.faculty = fs
+    dir_fgei.faculty = fgei
+    dir_fs.faculty = fs
     # affichage du directeur de la fac
-    print(dirFgei)
-    print(dirFs)
+    print(dir_fgei)
+    print(dir_fs)
     print("--------------------")
     # ajouter les departements a la liste des dep
-    fgei.addDep(depInfo)
-    fgei.addDep(depRsx)
-    fs.addDep(depMath)
+    fgei.add_dep(dep_info)
+    fgei.add_dep(dep_rsx)
+    fs.add_dep(dep_math)
     # afficher la liste des dep
-    fgei.displayDep()
-    fs.displayDep()
+    fgei.display_dep()
+    fs.display_dep()
     print("--------------------")
     # suppression d'un dep
     print("Suppression d'un departement")
-    fgei.removeDep(depRsx)
-    fgei.displayDep()
+    fgei.remove_dep(dep_rsx)
+    fgei.display_dep()
     print("--------------------")
     # set un chief au departement
     print("Modifier le chef de departement")
-    dirFgei.setDepChief(chefDep,depInfo.name)
+    dir_fgei.set_dep_chief(chef_dep,dep_info.name)
     # affichage des resultats apres modification du chef de departement
-    print(depInfo)
+    print(dep_info)
     print("--------------------")
 
     # teste de la classe universite 
@@ -199,36 +199,36 @@ if __name__ == "__main__":
     print(ummto)
     print(usthb)
     # affichage de la liste des faculte
-    ummto.addFac(fgei)
-    ummto.addFac(fs)
-    ummto.displayFac()
+    ummto.add_fac(fgei)
+    ummto.add_fac(fs)
+    ummto.display_fac()
     # création directeur
-    ummtoDirector = UnivDirector("Pr. Salah", "salah@ummto.dz", "0555000011",ummto)
-    usthbDirector = UnivDirector("Pr. Farida", "farida@usthb.dz", "0555345611",usthb)
+    ummto_director = UnivDirector("Pr. Salah", "salah@ummto.dz", "0555000011",ummto)
+    usthb_director = UnivDirector("Pr. Farida", "farida@usthb.dz", "0555345611",usthb)
     # affichage des directeurs des universite 
-    print(ummtoDirector)
-    print(usthbDirector)
+    print(ummto_director)
+    print(usthb_director)
     # assignation
     print('assignation de directeur aux universite')
-    ummto.setUnivDirector(ummtoDirector)
-    usthb.setUnivDirector(usthbDirector)
+    ummto.set_univ_director(ummto_director)
+    usthb.set_univ_director(usthb_director)
     print(ummto)
     print(usthb)
     print("--------------------")
     # supprimer une faculte
     print("Suppression d'une faculte:")
-    ummto.removeFac(fs)
-    ummto.displayFac()
+    ummto.remove_fac(fs)
+    ummto.display_fac()
     print("--------------------")
     # set un chief au departement
     print("Modifier le chef de departement:")
-    ummtoDirector.setDepChief(chefDepInfo,depInfo.name,fgei.name)
+    ummto_director.set_dep_chief(chef_dep_info,dep_info.name,fgei.name)
     # affichage des resultats apres modification du chef de departement
-    print(depInfo)
+    print(dep_info)
     print("--------------------")
     # set un directeur de faculte
     print("Modifier le directeur de faculte:")
-    ummtoDirector.setFacDirector(dirFs,fgei.name)
+    ummto_director.set_fac_director(dir_fs,fgei.name)
     # affichage des resultats apres modification du directeur de faculte
     print(fgei)
     print("--------------------")
