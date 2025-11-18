@@ -7,6 +7,8 @@ from classes.depChief import DepChief
 from classes.departement import Departement
 from classes.faculty import Faculty
 from classes.facDirector import FacDir
+from classes.univDirector import UnivDirector
+from classes.university import University
 
 if __name__ == "__main__":
     
@@ -97,6 +99,7 @@ if __name__ == "__main__":
     chefDepInfo = DepChief("Dr. Karim","0765432345", "karim@univ.dz")
     chefDepRsx = DepChief("Dr. Zinedine","0706732345", "zinedine@univ.dz")
     chefDep = DepChief("Dr. El'hocine","0706732116", "elhocine@univ.dz")
+    chefDepMath = DepChief("Dr. Lylia","0706732234", "lylia@univ.dz")
     # affichage de information du chef de departement
     print("Chef de departement: ")
     print(chefDepInfo)
@@ -127,9 +130,11 @@ if __name__ == "__main__":
     # creation d'un departement
     depInfo = Departement("Departement d'informatique" , chefDepInfo)
     depRsx = Departement("Departement de reseaux" , chefDepRsx)
+    depMath = Departement("Departement de Mathematique" , chefDepMath)
     # affichage du departement
     print(depInfo)
     print(depRsx)
+    print(depMath)
     print("--------------------")
 
     # ajout des sections a leur departement
@@ -146,26 +151,33 @@ if __name__ == "__main__":
     # teste de la classe FacDir
     # creation d'un directeur de fac
     dirFgei = FacDir("Dr. Thanina", "0706712445","thanina@univ.dz",None) # a l'initialisation le directeur n'est pas affecté a une faculte
+    dirFs = FacDir("Dr. Lyna", "0767812445","lyna@univ.dz",None)
     #affichage du directeur de la fac
     print(dirFgei)
+    print(dirFs)
     print("--------------------")
     
     # teste de la classe Faculty
     # creation de faculty
     fgei = Faculty("Faculty de genie electrique et d'informatique",dirFgei)
+    fs = Faculty("Faculty des sciences",dirFs)
     print(fgei)
     print("--------------------")
     # lier la faculte a un directeur
     print("Lier la faculte au directeur:")
     dirFgei.faculty = fgei
+    dirFs.faculty = fs
     # affichage du directeur de la fac
     print(dirFgei)
+    print(dirFs)
     print("--------------------")
     # ajouter les departements a la liste des dep
     fgei.addDep(depInfo)
     fgei.addDep(depRsx)
+    fs.addDep(depMath)
     # afficher la liste des dep
     fgei.displayDep()
+    fs.displayDep()
     print("--------------------")
     # suppression d'un dep
     print("Suppression d'un departement")
@@ -179,8 +191,46 @@ if __name__ == "__main__":
     print(depInfo)
     print("--------------------")
 
+    # teste de la classe universite 
+    # création université
+    ummto = University("Universite Mouloud Mammeri", "026123456", "contact@ummto.dz", "Tizi-Ouzou")
+    usthb = University("Universite Houari Boumediene", "026127896", "contact@usthb.dz", "Alger")
+    # affichage des universites crees 
+    print(ummto)
+    print(usthb)
+    # affichage de la liste des faculte
+    ummto.addFac(fgei)
+    ummto.addFac(fs)
+    ummto.displayFac()
+    # création directeur
+    ummtoDirector = UnivDirector("Pr. Salah", "salah@ummto.dz", "0555000011",ummto)
+    usthbDirector = UnivDirector("Pr. Farida", "farida@usthb.dz", "0555345611",usthb)
+    # affichage des directeurs des universite 
+    print(ummtoDirector)
+    print(usthbDirector)
+    # assignation
+    print('assignation de directeur aux universite')
+    ummto.setUnivDirector(ummtoDirector)
+    usthb.setUnivDirector(usthbDirector)
+    print(ummto)
+    print(usthb)
+    print("--------------------")
+    # supprimer une faculte
+    print("Suppression d'une faculte:")
+    ummto.removeFac(fs)
+    ummto.displayFac()
+    print("--------------------")
+    # set un chief au departement
+    print("Modifier le chef de departement:")
+    ummtoDirector.setDepChief(chefDepInfo,depInfo.name,fgei.name)
+    # affichage des resultats apres modification du chef de departement
+    print(depInfo)
+    print("--------------------")
+    # set un directeur de faculte
+    print("Modifier le directeur de faculte:")
+    ummtoDirector.setFacDirector(dirFs,fgei.name)
+    # affichage des resultats apres modification du directeur de faculte
+    print(fgei)
+    print("--------------------")
     
     
-
-    
-
