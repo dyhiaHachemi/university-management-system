@@ -30,10 +30,10 @@ if __name__ == "__main__":
 
     # teste de la classe Student
     # Création d’un étudiant
-    etudiant1 = Student("Tizi-Ouzou","Dyhia", "dyhia@gmail.com", "0555542355")
-    etudiant2 = Student("Tizi-Ouzou","Ali", "ali@mail.com", "0555542786")
-    etudiant3 = Student("Tizi-Ouzou","Sara", "sara@mail.com", "0675542355")
-    etudiant4 = Student("Tizi-Ouzou","Sabrinel", "sabrinel@mail.com", "0725542359")
+    etudiant1 = Student("Tizi-Ouzou","Dyhia", "0555542355", "dyhia@gmail.com")
+    etudiant2 = Student("Tizi-Ouzou","Ali", "0555542786", "ali@mail.com")
+    etudiant3 = Student("Tizi-Ouzou","Sara", "0675542355", "sara@mail.com")
+    etudiant4 = Student("Tizi-Ouzou","Sabrinel", "0725542359", "sabrinel@mail.com")
 
     # ajout des notes a la liste des notes 
     etudiant1.add_note(note1)
@@ -98,7 +98,7 @@ if __name__ == "__main__":
     # creation d'un Chef de département
     chef_dep_info = DepChief("Dr. Karim","0765432345", "karim@univ.dz")
     chef_dep_rsx = DepChief("Dr. Zinedine","0706732345", "zinedine@univ.dz")
-    chef_dep = DepChief("Dr. El'hocine","0706732116", "elhocine@univ.dz")
+    chef_dep = DepChief("Dr. El-hocine","0706732116", "elhocine@univ.dz")
     chef_dep_math = DepChief("Dr. Lylia","0706732234", "lylia@univ.dz")
     # affichage de information du chef de departement
     print("Chef de departement: ")
@@ -198,16 +198,20 @@ if __name__ == "__main__":
     # affichage des universites crees 
     print(ummto)
     print(usthb)
+    print("--------------------")
     # affichage de la liste des faculte
     ummto.add_fac(fgei)
     ummto.add_fac(fs)
     ummto.display_fac()
+    print("--------------------")
     # création directeur
-    ummto_director = UnivDirector("Pr. Salah", "salah@ummto.dz", "0555000011",ummto)
-    usthb_director = UnivDirector("Pr. Farida", "farida@usthb.dz", "0555345611",usthb)
-    # affichage des directeurs des universite 
+    ummto_director = UnivDirector("Pr. Salah", "0555000011", "salah@ummto.dz",ummto)
+    usthb_director = UnivDirector("Pr. Farida", "0555345611", "farida@usthb.dz",usthb)
+    # affichage des directeurs des universite
+    print("Les directeurs des universites:") 
     print(ummto_director)
     print(usthb_director)
+    print("--------------------")
     # assignation
     print('assignation de directeur aux universite')
     ummto.set_univ_director(ummto_director)

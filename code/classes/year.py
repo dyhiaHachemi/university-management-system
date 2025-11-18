@@ -60,6 +60,7 @@ class Year:
            print("Impossible de passer au next year: la moyenne de l'etudiant n'est pas calculé")
            return 
         elif (average < 10):
+            average = round(average, 2)
             print(f"Impossible de passer au year suivant: L'etudiant n'a pas de moyenne minimale (moyenne = {average})")
             return
         else:
