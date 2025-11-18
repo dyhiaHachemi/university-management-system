@@ -1,4 +1,3 @@
-from classes.module import Module
 """
     class Note(value, module)
     module est un objet de type Module uttilisé pour le calcul de la moyenne 

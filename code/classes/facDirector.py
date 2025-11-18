@@ -1,6 +1,5 @@
 from classes.person import Person
 from classes.depChief import DepChief
-from classes.faculty import Faculty
 
 class FacDir (Person):
     def __init__(self, name, phone_number, email,faculty):

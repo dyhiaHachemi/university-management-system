@@ -2,6 +2,7 @@
 classe DepChief calcul la moyenne des etudiants
 """
 from classes.person import Person
+
 class DepChief(Person):
     def __init__(self, name, email, phone_number):
         # initialiser les attributs de la classe parente Person
