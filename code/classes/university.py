@@ -36,7 +36,7 @@ class University():
                 print(f" {fac}") # appel de la fct __str__ de la classe faculty    
     
     # suppression d'une faculte 
-    def removeDep(self,fac):
+    def removeFac(self,fac):
         self.listOfFac.remove(fac)
 
     # definir le directeur de l'universite
