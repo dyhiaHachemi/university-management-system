@@ -2,8 +2,9 @@ from classes.person import Person
 from classes.facDirector import FacDir
 from classes.depChief import DepChief
 class UnivDirector(Person):
-    def __init__(self, name, phoneNumber, email):
+    def __init__(self, name, phoneNumber, email, university):
         super().__init__(name, phoneNumber, email)
+        self.university = university
 
     # représentation en chaîne de caractères d'un objet
     def __str__(self):
@@ -12,18 +13,23 @@ class UnivDirector(Person):
      # modifier un chef de dep
     
     # set le chef de departement
-    def setDepChief(self,depChief,depName):
-        for dep in self.faculty.listOfDep :
-            if (dep.name == depName) :
-                if (isinstance (depChief, DepChief)):
-                    dep.depChief = depChief
-                    print(f"Le chef du {depName} a ete change.")
-                    return
-                else :
-                    # l'entree n'est pas un chef de departement
-                    print("Erreur : l'objet doit être une instance de la classe DepChief.")
-                    return
-        print("Erreur : Departement introuvable dans cette faculte.")    
+    def setDepChief(self,depChief,depName,facName):
+        # trouver la faculte
+        for fac in self.university.listOfFac:
+            if (fac.name == facName):
+                # trouver le departement
+                for dep in fac.listOfDep :
+                    if (dep.name == depName) :
+                        if (isinstance (depChief, DepChief)):
+                            dep.depChief = depChief
+                            print(f"Le chef du {depName} a ete change.")
+                            return
+                        else :
+                            # l'entree n'est pas un chef de departement
+                            print("Erreur : l'objet doit être une instance de la classe DepChief.")
+                            return
+                print("Erreur : Departement introuvable dans cette faculte.")    
+        print("Erreur : Faculte introuvable dans cette universite.")    
 
     # set le directeur de faculty
     def setFacDirector(self,facDirector,facName):
