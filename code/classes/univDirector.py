@@ -3,18 +3,25 @@ from classes.facDirector import FacDir
 from classes.depChief import DepChief
 
 class UnivDirector(Person):
+    """
+    Represente le directeur de l'universite designé par l'universite
+    Peut affecter un chef de departement a un departement
+    Peut affecter un directeur a une faculte
+    """
     def __init__(self, name, phone_number, email, university):
         super().__init__(name, phone_number, email)
         self.university = university
 
-    # représentation en chaîne de caractères d'un objet
     def __str__(self):
+        """
+        représentation en chaîne de caractères d'un objet
+        """
         return (f" - Nom: {self.name} \n Email: {self.email} \n Numero de Telephone: {self.phone_number}")
      
-     # modifier un chef de dep
-    
-    # set le chef de departement
     def set_dep_chief(self,dep_chief : DepChief ,dep_name,fac_name):
+        """
+        set le chef de departement
+        """
         # trouver la faculte
         for fac in self.university.list_of_fac:
             if (fac.name == fac_name):
@@ -32,8 +39,10 @@ class UnivDirector(Person):
                 print("Erreur : Departement introuvable dans cette faculte.")    
         print("Erreur : Faculte introuvable dans cette universite.")    
 
-    # set le directeur de faculty
     def set_fac_director(self,fac_director : FacDir ,fac_name):
+        """
+        set le directeur d'une faculte
+        """
         for fac in self.university.list_of_fac :
             if (fac.name == fac_name) :
                 if (isinstance (fac_director, FacDir)):

@@ -3,18 +3,26 @@ from classes.module import Module
 # importation de la classe Note pour creation de la liste des etudiantspour chaque section
 from classes.student import Student
 class Year:
+    """
+    Represente une section dans un departement
+    Possède une liste des etudiants de moyennes et de modules 
+    """
     def __init__(self, name):
         self.name = name
         self.list_of_students = []
         self.list_of_modules = []
         self.list_of_marks = []
 
-    # représentation en chaîne de caractères d'un objet
     def __str__(self):
+        """
+        représentation en chaîne de caractères d'un objet
+        """
         return (f"- Section: {self.name} ")
     
-    # Liste des etudiants
     def add_student(self,student : Student):
+        """
+        Ajoute un etudiant a un year donné
+        """
         # on verifie si l'entree d'utilisateur est bien un objet de la classe Student
         if (isinstance(student,Student)):
             # ajout de l'etudiant' a la liste des etudiants
@@ -23,8 +31,10 @@ class Year:
             # l'entree n'est pas un etudiant
             print("Erreur : l'objet doit être une instance de la classe Student.")
 
-    # Liste des modules
     def add_module(self,module : Module):
+        """
+        Ajoute un module a un year donné
+        """
         # on verifie si l'entree d'utilisateur est bien un objet de la classe Student
         if (isinstance(module,Module)):
             # ajout de l'etudiant' a la liste des etudiants
@@ -35,23 +45,32 @@ class Year:
 
     # Liste des moyennes calculées par le chief de departement 
     def add_mark(self,depChief ):
+        """
+        Ajoute une moyenne a la liste des moyennes d'un year donné
+        """
         # appeller la fct calculAvg qui est dans la classe ChiefDepartement
         depChief.calcul_avg(self)
 
-    # supprimer un etudiant de la liste des etudiant d'un year
     def remove_student(self,student : Student):
+        """
+        supprime un etudiant de la liste des etudiant d'un year
+        """
         self.list_of_students.remove(student)
     
-    # fonction pour reccuperer la moyenne d'un etudiant 
     def get_avg (self,student : Student):
+        """
+        reccuperer la moyenne d'un etudiant calculé par le chef de departement
+        """
         # chercher la moyenne de l'etudiant dans la liste des moyennes par son nom
         for (stud, avg ) in self.list_of_marks :
             if (stud == student) :
                 return avg # reccuperer la moyenne 
         return None
         
-    # fonction pour envoyer un etudiant a un niv supperieur
     def send_student_to_next_year(self,student :Student, next_year):
+        """
+        envoyer un etudiant a un niv supperieur s'il a une moyenne superieure ou egale a 10
+        """
         # reccuperer la moyenne de l'etudiant
         average = self.get_avg(student)
         # verifier si l'etudiant peut passer au year suivant
@@ -71,8 +90,10 @@ class Year:
             next_year.add_student(student)
             print(f"{student.name} est passe de {self.name} a {next_year.name}")
     
-    # affichage de la liste des etudiants
     def display_students(self):
+        """
+        affiche la liste des etudiants
+        """
         print(f"La liste des etudiants de la section {self.name}:")
         # verifier si la liste n'est pas vide
         if (not self.list_of_students): 
@@ -83,8 +104,10 @@ class Year:
             for student in self.list_of_students :
                 print(f"{student} \n") # appel de la fct __str__ de la classe Student
     
-    # affichage de la liste des modules
     def display_modules(self):
+        """
+        affichage de la liste des modules
+        """
         print(f"La liste des modules de la section {self.name}:")
         # verifier si la liste n'est pas vide
         if (not self.list_of_modules): 
@@ -95,8 +118,10 @@ class Year:
             for module in self.list_of_modules :
                 print(f"- {module}") # appel de la fct __str__ de la classe Student
 
-    # affichage de la liste des moyennes
     def display_marks(self):
+        """
+        affichage de la liste des moyennes
+        """
         print(f"Les moyennes des etudiants de la section {self.name} :")
         # vérifier si la liste est vide
         if (not self.list_of_marks):

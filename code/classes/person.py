@@ -1,8 +1,7 @@
-"""
-    class mère Person (name, email, phoneNumber)
-"""
-
 class Person:
+    """
+    Represente la classe mere aux classes Student , UnivDirector, FacDir et DepChief
+    """
     def __init__(self, name, phone_number, email):
         self.name = name
         self.phone_number = phone_number
