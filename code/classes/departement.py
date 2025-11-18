@@ -11,7 +11,7 @@ class Departement():
         return (f" - Nom: {self.name} \n Chef de departement: {self.dep_chief.name}")
     
     # Ajout d'un year a la liste
-    def add_year(self,year):
+    def add_year(self,year : Year):
         if (isinstance(year, Year)):
             self.list_of_years.append(year)
         else:

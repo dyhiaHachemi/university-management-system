@@ -14,7 +14,7 @@ class Year:
         return (f"- Section: {self.name} ")
     
     # Liste des etudiants
-    def add_student(self,student):
+    def add_student(self,student : Student):
         # on verifie si l'entree d'utilisateur est bien un objet de la classe Student
         if (isinstance(student,Student)):
             # ajout de l'etudiant' a la liste des etudiants
@@ -24,7 +24,7 @@ class Year:
             print("Erreur : l'objet doit être une instance de la classe Student.")
 
     # Liste des modules
-    def add_module(self,module):
+    def add_module(self,module : Module):
         # on verifie si l'entree d'utilisateur est bien un objet de la classe Student
         if (isinstance(module,Module)):
             # ajout de l'etudiant' a la liste des etudiants
@@ -34,16 +34,16 @@ class Year:
             print("Erreur : l'objet doit être une instance de la classe Module.")
 
     # Liste des moyennes calculées par le chief de departement 
-    def add_mark(self,depChief):
+    def add_mark(self,depChief ):
         # appeller la fct calculAvg qui est dans la classe ChiefDepartement
         depChief.calcul_avg(self)
 
     # supprimer un etudiant de la liste des etudiant d'un year
-    def remove_student(self,student):
+    def remove_student(self,student : Student):
         self.list_of_students.remove(student)
     
     # fonction pour reccuperer la moyenne d'un etudiant 
-    def get_avg (self,student):
+    def get_avg (self,student : Student):
         # chercher la moyenne de l'etudiant dans la liste des moyennes par son nom
         for (stud, avg ) in self.list_of_marks :
             if (stud == student) :
@@ -51,7 +51,7 @@ class Year:
         return None
         
     # fonction pour envoyer un etudiant a un niv supperieur
-    def send_student_to_next_year(self,student, next_year):
+    def send_student_to_next_year(self,student :Student, next_year):
         # reccuperer la moyenne de l'etudiant
         average = self.get_avg(student)
         # verifier si l'etudiant peut passer au year suivant

@@ -1,6 +1,7 @@
 from classes.person import Person
 from classes.facDirector import FacDir
 from classes.depChief import DepChief
+
 class UnivDirector(Person):
     def __init__(self, name, phone_number, email, university):
         super().__init__(name, phone_number, email)
@@ -13,7 +14,7 @@ class UnivDirector(Person):
      # modifier un chef de dep
     
     # set le chef de departement
-    def set_dep_chief(self,dep_chief,dep_name,fac_name):
+    def set_dep_chief(self,dep_chief : DepChief ,dep_name,fac_name):
         # trouver la faculte
         for fac in self.university.list_of_fac:
             if (fac.name == fac_name):
@@ -32,7 +33,7 @@ class UnivDirector(Person):
         print("Erreur : Faculte introuvable dans cette universite.")    
 
     # set le directeur de faculty
-    def set_fac_director(self,fac_director,fac_name):
+    def set_fac_director(self,fac_director : FacDir ,fac_name):
         for fac in self.university.list_of_fac :
             if (fac.name == fac_name) :
                 if (isinstance (fac_director, FacDir)):

@@ -16,7 +16,7 @@ class University():
         return (f" - Nom: {self.name} \n Numero de Telephone: {self.phone_number} \n Email: {self.email} \n Addresse: {self.address} ")
     
     # Ajout d'un departement a la liste
-    def add_fac(self,fac):
+    def add_fac(self,fac : Faculty):
         if (isinstance(fac, Faculty)):
             self.list_of_fac.append(fac)
         else:
@@ -36,11 +36,11 @@ class University():
                 print(f" {fac}") # appel de la fct __str__ de la classe faculty    
     
     # suppression d'une faculte 
-    def remove_fac(self,fac):
+    def remove_fac(self,fac : Faculty):
         self.list_of_fac.remove(fac)
 
     # definir le directeur de l'universite
-    def set_univ_director(self, director):
+    def set_univ_director(self, director : UnivDirector):
         if (isinstance(director , UnivDirector)):
             self.univ_director = director
             print(f"Le directeur de l'{self.name} a ete defini : {director.name}")

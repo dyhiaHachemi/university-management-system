@@ -10,7 +10,7 @@ class FacDir (Person):
         return (f" - Nom: {self.name} \n Email: {self.email} \n Numero de Telephone: {self.phone_number}")
         
     # modifier un chef de dep
-    def set_dep_chief(self,dep_chief,dep_name):
+    def set_dep_chief(self, dep_chief : DepChief , dep_name):
         for dep in self.faculty.list_of_dep :
             if (dep.name == dep_name) :
                 if (isinstance (dep_chief, DepChief)):

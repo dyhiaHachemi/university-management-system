@@ -20,7 +20,7 @@ class Student(Person):
         return (f"- Etudiant: {self.name} \n Addresse: {self.address} \n Email: {self.email} \n Numero de Telephone: {self.phone_number}")
     
     # Liste des notes
-    def add_note(self,note):
+    def add_note(self,note : Note):
         # on verifie si l'entree d'utilisateur est bien un objet de la classe Note ex:(12,'math')
         if (isinstance(note,Note)):
             # ajout de la note a la liste des notes de l'etudiant

@@ -11,7 +11,7 @@ class Faculty():
         return (f" - Nom: {self.name} \n Directeur: {self.fac_director.name}")
     
     # Ajout d'un departement a la liste
-    def add_dep(self,dep):
+    def add_dep(self,dep : Departement):
         if (isinstance(dep, Departement)):
             self.list_of_dep.append(dep)
         else:
@@ -31,5 +31,5 @@ class Faculty():
                 print(f" {dep}") # appel de la fct __str__ de la classe Year    
     
     # suppression d'un departement 
-    def remove_dep(self,dep):
+    def remove_dep(self,dep : Departement):
         self.list_of_dep.remove(dep)
