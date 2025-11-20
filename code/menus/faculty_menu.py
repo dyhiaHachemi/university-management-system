@@ -9,7 +9,8 @@ def faculty_menu (universite : University):
         print("\n === GESTION DE FACULTE ===")
         print("1. Ajouter une faculte")
         print("2. Supprimer une faculte")
-        print("3. Lister les facultes")
+        print("3. Afficher une faculte")
+        print("4. Lister les facultes")
         print("0. Retour")
 
         choix = input("Veuillez saisir votre choix (0 - 5) : ")
@@ -38,7 +39,25 @@ def faculty_menu (universite : University):
                         print(f"Faculte '{faculte.name}' supprimee avec succes.")
                 except Exception as e:
                     print(f"Erreur {e}")
-            case "3" :
+            case "3":
+                # affichage d'une faculte
+                name = input("Entrez le nom de la faculte a afficher: ")
+                try:
+                    # on commence par reccuperer l'objet faculte apartir de son nom
+                    faculte = None
+                    for fac in universite.list_of_fac :
+                        if (fac.name.lower() == name.lower()):
+                            faculte = fac # faculte trouvé
+                            break
+                    # si on n'a pas trouvé de faculte
+                    if (faculte is None):
+                        print(f"Faculte {name} introuvable!")
+                    else: 
+                        # affichage de la faculte
+                        print(faculte)
+                except Exception as e:
+                    print(f"Erreur {e}")
+            case "4" :
                 # affichage de la liste des facultes dans l'universite
                 universite.display_fac()
             case "0" :
