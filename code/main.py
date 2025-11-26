@@ -24,15 +24,14 @@ def set_university_director(universite):
     phone_number = input("Entrez le numero de telephone du directeur: ")
     university_director = UnivDirector(name, phone_number, email, universite)
     universite.set_univ_director(university_director)
-    return
+    return university_director
 
 def main():
     universite = create_university()
     print(f"{universite.name} cree avec succes!")
     # l'universite cree affecte un directeur a l'universite 
-    set_university_director(universite)
-    #print(f"Le directeur {university_director.name} a ete affecte a {universite.name} avec succes!")
-    main_menu(universite) # appel de la fonction main_menu pour afficher le menu principal de l'application
+    university_director = set_university_director(universite)
+    main_menu(universite,university_director) # appel de la fonction main_menu pour afficher le menu principal de l'application
 
 if __name__ == "__main__":
     main()
