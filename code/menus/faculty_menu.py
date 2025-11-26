@@ -1,9 +1,13 @@
+"""
+avant de creer une faculte il faut avoir un directeur de faculte
+"""
+
 from classes.faculty import Faculty
 from classes.university import University
 from classes.depChief import DepChief
 
 def faculty_menu (universite : University):
-    print("---------- Systeme de gestion des facultes ----------")
+    print("\n ---------- Systeme de gestion des facultes ----------")
     
     # affichage du menu de gestion de faculte
     while True :
