@@ -5,6 +5,7 @@ avant de creer une faculte il faut avoir un directeur de faculte
 from classes.faculty import Faculty
 from classes.university import University
 from classes.depChief import DepChief
+from classes.facDirector import FacDir
 
 def faculty_menu (universite : University):
     print("\n ---------- Systeme de gestion des facultes ----------")
@@ -19,16 +20,28 @@ def faculty_menu (universite : University):
         print("5. Definir un chef de departement (par le directeur de faculte)")
         print("0. Retour")
 
-        choix = input("Veuillez saisir votre choix (0 - 5) : ").strip()
+        choix = input("Veuillez saisir votre choix (0 - 6) : ").strip()
 
         match choix :
             case "1" :
+                print("Ajout d'une faculte a l'universite:")
                 name = input("Le nom de la faculte a ajouter: ").strip()
-                faculte = Faculty(name)  # creation d'une faculté
+
+                print(f"Affectation d'un directeur a la faculte {name}:")
+                name = input("Entrez le nom du directeur: ")
+                email = input("Entrez l'email du directeur: ")
+                phone_number = input("Entrez le numero de telephone du directeur: ")
+                faculty_director = FacDir(name, phone_number, email,None) # le directeur n'a pas de faculte pour l'instant
+
+                faculte = Faculty(name,faculty_director)  # creation d'une faculté 
+
+                # lier la faculte au directeur cree
+                faculty_director.faculty = faculte
+
                 universite.add_fac(faculte) # ajout de la faculte a la liste des facultes dans universite
                 print(f"Faculte '{faculte.name}' ajoutee avec succes.")
             case "2" :
-                name = input("Le nom de la faculte a supprimer: ").strip()
+                """name = input("Le nom de la faculte a supprimer: ").strip()
                 # on commence par reccuperer l'objet faculte apartir de son nom
                 faculte = None
                 for fac in universite.list_of_fac :
@@ -44,9 +57,9 @@ def faculty_menu (universite : University):
                         universite.remove_fac(name)
                         print(f"Faculte '{faculte.name}' supprimee avec succes.")
                     except Exception as e:
-                        print(f"Erreur {e}")
+                        print(f"Erreur {e}")"""
             case "3":
-                # affichage d'une faculte
+                """# affichage d'une faculte
                 name = input("Entrez le nom de la faculte a afficher: ").strip()
                 # on commence par reccuperer l'objet faculte apartir de son nom
                 faculte = None
@@ -59,12 +72,12 @@ def faculty_menu (universite : University):
                     print(f"Faculte {name} introuvable!")
                 else: 
                     # affichage de la faculte                        
-                    print(faculte)
+                    print(faculte)"""
             case "4" :
-                # affichage de la liste des facultes dans l'universite
-                universite.display_fac()
+               """ # affichage de la liste des facultes dans l'universite
+                universite.display_fac()"""
             case "5":
-                # definir un chef de departement a un departement de la faculte
+                """# definir un chef de departement a un departement de la faculte
                 fac_name = input("Entrez le nom de la faculte: ").strip()
                 # on commence par reccuperer l'objet faculte apartir de son nom
                 faculte = None
@@ -98,7 +111,7 @@ def faculty_menu (universite : University):
                             print(f"Chef du departement {dep_name} definit a '{chief_name}")
                         except Exception as e :
                             print(f"Erreur de la deficnition du chef de departement {e}")
-                
+                """
             case "0" :
                 print("Retour au menu principal!")
                 break
