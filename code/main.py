@@ -2,7 +2,7 @@ from menus.main_menu import main_menu
 from classes.university import University
 from classes.univDirector import UnivDirector
 
-def create_university(universite):
+def create_university():
     """
     Creer une universite au demarrage du systeme
     """
@@ -28,7 +28,7 @@ def set_university_director(universite):
 
 def main():
     universite = create_university()
-    print(f"{universite.name} cree avec succes!")
+    print(f"{universite.name} cree avec succes!\n")
     # l'universite cree affecte un directeur a l'universite 
     university_director = set_university_director(universite)
     main_menu(universite,university_director) # appel de la fonction main_menu pour afficher le menu principal de l'application
