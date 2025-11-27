@@ -14,7 +14,7 @@ def main_menu(universite : University, university_director: UnivDirector):
         print("0. Quitter")
 
         choix = input("Veuillez saisir votre choix (0 - 5) : ").strip()
-
+        
         match choix :
             case "1" :
                 faculty_menu(universite)
@@ -29,9 +29,9 @@ def main_menu(universite : University, university_director: UnivDirector):
                 #student_menu(universite)
                 pass
             case "5" :
-                print("Affichage de l'universite:")
+                print("\n Affichage de l'universite:")
                 print(universite)
-                print("Affichage du directeur de l'universite")
+                print("\n Affichage du directeur de l'universite")
                 print(university_director)
                 pass
             case "0" :
