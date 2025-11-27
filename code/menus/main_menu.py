@@ -17,7 +17,7 @@ def main_menu(universite : University, university_director: UnivDirector):
         
         match choix :
             case "1" :
-                faculty_menu(universite)
+                faculty_menu(universite, university_director)
                 pass
             case "2" :
                 #departement_menu(universite)
