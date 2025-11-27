@@ -25,7 +25,7 @@ def faculty_menu (universite : University):
         
         match choix :
             case "1" :
-                print("\n Ajout d'une faculte a l'universite:")
+                print("\nAjout d'une faculte a l'universite:")
                 nameFac = input("Le nom de la faculte a ajouter: ").strip()
 
                 print(f"Affectation d'un directeur a la faculte {nameFac}:")
@@ -42,7 +42,7 @@ def faculty_menu (universite : University):
                 universite.add_fac(faculte) # ajout de la faculte a la liste des facultes dans universite
                 print(f"Faculte '{faculte.name}' ajoutee avec succes.")
             case "2" :
-                print("Suppression d'une faculte: ")
+                print("\nSuppression d'une faculte: ")
                 name = input("Le nom de la faculte a supprimer: ").strip()
                 # on commence par reccuperer l'objet faculte apartir de son nom
                 faculte = None
@@ -61,7 +61,7 @@ def faculty_menu (universite : University):
                     except Exception as e:
                         print(f"Erreur {e}")
             case "3":
-                print("Affichage d'une faculte:")
+                print("\nAffichage d'une faculte:")
                 # affichage d'une faculte
                 name = input("Entrez le nom de la faculte a afficher: ").strip()
                 # on commence par reccuperer l'objet faculte apartir de son nom
@@ -77,9 +77,26 @@ def faculty_menu (universite : University):
                     # affichage de la faculte                        
                     print(faculte)
             case "4" :
-               pass
+                print("\nAffichage du directeur de la faculte:")
+                name = input("Entrez le nom de la faculte: ").strip()
+                # on commence par reccuperer l'objet faculte apartir de son nom
+                faculte = None
+                for fac in universite.list_of_fac :
+                    if (fac.name.lower() == name.lower()):
+                        faculte = fac # faculte trouvé                            
+                        break
+                # si on n'a pas trouvé de faculte
+                if (faculte is None):
+                    print(f"Faculte {name} introuvable!")
+                else: 
+                    # affichage de la faculte                        
+                    print(faculty_director)
             case "5":
-                """# definir un chef de departement a un departement de la faculte
+                # affichage de la liste des facultes dans l'universite
+                universite.display_fac()
+            case "6" :
+                print("\nDefinir un chef de departement par le directeur de la faculte:")
+                # definir un chef de departement a un departement de la faculte par le directeru de la faculte
                 fac_name = input("Entrez le nom de la faculte: ").strip()
                 # on commence par reccuperer l'objet faculte apartir de son nom
                 faculte = None
@@ -89,7 +106,7 @@ def faculty_menu (universite : University):
                         break
                 # si on n'a pas trouvé de faculte
                 if (faculte is None):
-                    print(f"Faculte {name} introuvable!")
+                    print(f"Faculte {fac_name} introuvable!")
                     break
                 else: 
                     # on verifie qu'il existe un directeur pour cette faculte
@@ -98,25 +115,23 @@ def faculty_menu (universite : University):
                         print(f"la faculte {faculte.name} n'a pas de directeur! seul le directeur peut definir un chef de departement.")
                         break
                     else: 
+                        # la faculte a un directeur
                         dep_name = input ("Entrez le nom du departement: ").strip()
                         # creation d'un chef de departement
-                        chief_name = ("Entrez le nom du chef de departement: ").strip()
-                        chief_phone_number = ("Entrez le numero de telephone du chef de departement: ").strip()
-                        chief_email = ("Entrez l'email du chef de departement: ").strip()
+                        print(f"Affectation d'un chef au departement {dep_name}:")
+                        chief_name = input("Entrez le nom du chef de departement: ").strip()
+                        chief_phone_number = input("Entrez le numero de telephone du chef de departement: ").strip()
+                        chief_email = input("Entrez l'email du chef de departement: ").strip()
                         try:
                             dep_chief = DepChief(chief_name,chief_email,chief_phone_number)
                         except Exception as e:
                             print(f"Impossible de creer l'objet DepChief {e}")
-                        # definir un chef de departement               
+
+                        # set departement chief par le directeur de faculte              
                         try:             
                             fac_director.set_dep_chief(dep_chief, dep_name)
-                            print(f"Chef du departement {dep_name} definit a '{chief_name}")
                         except Exception as e :
-                            print(f"Erreur de la deficnition du chef de departement {e}")
-                """
-                # affichage de la liste des facultes dans l'universite
-                print("\n")
-                universite.display_fac()
+                            print(f"Erreur de la definition du chef de departement {e}")   
             case "0" :
                 print("Retour au menu principal!")
                 break
