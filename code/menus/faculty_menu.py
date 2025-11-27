@@ -16,24 +16,25 @@ def faculty_menu (universite : University):
         print("1. Ajouter une faculte")
         print("2. Supprimer une faculte")
         print("3. Afficher une faculte")
-        print("4. Lister les facultes")
-        print("5. Definir un chef de departement (par le directeur de faculte)")
+        print("4. Afficher le directeur de la faculte")
+        print("5. Lister les facultes")
+        print("6. Definir un chef de departement (par le directeur de faculte)")
         print("0. Retour")
 
         choix = input("Veuillez saisir votre choix (0 - 6) : ").strip()
-
+        
         match choix :
             case "1" :
-                print("Ajout d'une faculte a l'universite:")
-                name = input("Le nom de la faculte a ajouter: ").strip()
+                print("\n Ajout d'une faculte a l'universite:")
+                nameFac = input("Le nom de la faculte a ajouter: ").strip()
 
-                print(f"Affectation d'un directeur a la faculte {name}:")
-                name = input("Entrez le nom du directeur: ")
+                print(f"Affectation d'un directeur a la faculte {nameFac}:")
+                nameDir = input("Entrez le nom du directeur: ")
                 email = input("Entrez l'email du directeur: ")
                 phone_number = input("Entrez le numero de telephone du directeur: ")
-                faculty_director = FacDir(name, phone_number, email,None) # le directeur n'a pas de faculte pour l'instant
+                faculty_director = FacDir(nameDir, phone_number, email,None) # le directeur n'a pas de faculte pour l'instant
 
-                faculte = Faculty(name,faculty_director)  # creation d'une faculté 
+                faculte = Faculty(nameFac,faculty_director)  # creation d'une faculté 
 
                 # lier la faculte au directeur cree
                 faculty_director.faculty = faculte
@@ -41,7 +42,8 @@ def faculty_menu (universite : University):
                 universite.add_fac(faculte) # ajout de la faculte a la liste des facultes dans universite
                 print(f"Faculte '{faculte.name}' ajoutee avec succes.")
             case "2" :
-                """name = input("Le nom de la faculte a supprimer: ").strip()
+                print("Suppression d'une faculte: ")
+                name = input("Le nom de la faculte a supprimer: ").strip()
                 # on commence par reccuperer l'objet faculte apartir de son nom
                 faculte = None
                 for fac in universite.list_of_fac :
@@ -54,12 +56,13 @@ def faculty_menu (universite : University):
                 else: 
                     try:
                         # suppression de la faculte
-                        universite.remove_fac(name)
+                        universite.remove_fac(faculte)
                         print(f"Faculte '{faculte.name}' supprimee avec succes.")
                     except Exception as e:
-                        print(f"Erreur {e}")"""
+                        print(f"Erreur {e}")
             case "3":
-                """# affichage d'une faculte
+                print("Affichage d'une faculte:")
+                # affichage d'une faculte
                 name = input("Entrez le nom de la faculte a afficher: ").strip()
                 # on commence par reccuperer l'objet faculte apartir de son nom
                 faculte = None
@@ -72,10 +75,9 @@ def faculty_menu (universite : University):
                     print(f"Faculte {name} introuvable!")
                 else: 
                     # affichage de la faculte                        
-                    print(faculte)"""
+                    print(faculte)
             case "4" :
-               """ # affichage de la liste des facultes dans l'universite
-                universite.display_fac()"""
+               pass
             case "5":
                 """# definir un chef de departement a un departement de la faculte
                 fac_name = input("Entrez le nom de la faculte: ").strip()
@@ -112,6 +114,9 @@ def faculty_menu (universite : University):
                         except Exception as e :
                             print(f"Erreur de la deficnition du chef de departement {e}")
                 """
+                # affichage de la liste des facultes dans l'universite
+                print("\n")
+                universite.display_fac()
             case "0" :
                 print("Retour au menu principal!")
                 break
