@@ -80,8 +80,13 @@ def faculty_menu (universite : University, university_director: UnivDirector):
                 if (faculte is None):
                     print(f"Faculte {name} introuvable!")
                 else: 
-                    # affichage de la faculte                        
-                    print(faculty_director)
+                    # affichage du directeur de la faculte      
+                    fac_director = getattr(faculte, "fac_director", None)
+                    if fac_director is None:
+                        print(f"La faculte {faculte.name} n'a pas de directeur. ")
+                    else:
+                        print(f"\nDirecteru de la faculte {faculte.name}:")
+                        print(fac_director)
             case "5":
                 # affichage de la liste des facultes dans l'universite
                 universite.display_fac()
@@ -99,7 +104,6 @@ def faculty_menu (universite : University, university_director: UnivDirector):
                 # si on n'a pas trouvé de faculte
                 if (faculte is None):
                     print(f"Faculte {fac_name} introuvable!")
-                    break
                 else: 
                     # on verifie qu'il n'existe pas de directeur pour cette faculte
                     fac_director = getattr(faculte,"fac_director", None)
@@ -114,7 +118,6 @@ def faculty_menu (universite : University, university_director: UnivDirector):
                         university_director.set_fac_director(faculty_director,fac_name)
                     else:
                         print(f"la faculte {faculte.name} a deja un directeur!")
-                        break
                
             case "7" :
                 print("\nDefinir un chef de departement par le directeur de la faculte:")

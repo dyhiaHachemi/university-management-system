@@ -20,7 +20,9 @@ class FacDir (Person):
         """
         Set un chef de departement 
         """
+        print("66666")
         for dep in self.faculty.list_of_dep :
+            print("777777")
             if (dep.name == dep_name) :
                 if (isinstance (dep_chief, DepChief)):
                     dep.dep_chief = dep_chief
@@ -30,6 +32,6 @@ class FacDir (Person):
                     # l'entree n'est pas un chef de departement
                     print("Erreur : l'objet doit être une instance de la classe DepChief.")
                     return
-            
+            print("888888")
         print("Erreur : Departement introuvable dans cette faculte.")        
-                    
+        print("999999")         

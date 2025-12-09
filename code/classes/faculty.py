@@ -7,16 +7,16 @@ class Faculty():
     A un directeur designé par le directeur de l'universite
     Peut ajouter ou supprimer un departement d'une faculte
     """
-    def __init__(self, name, fac_director):
+    def __init__(self, name):
         self.name = name
-        self.fac_director = fac_director
+        self.fac_director = None # a la creation, la faculte n'a pas de directeur c'est au directeur de l'universite de le definir
         self.list_of_dep = []
 
     def __str__(self):
         """
         représentation en chaîne de caractères d'un objet
         """
-        return (f" - Nom: {self.name} \n Directeur: {self.fac_director.name}")
+        return (f" - Nom de la faculte: {self.name}")
     
     def add_dep(self,dep : Departement):
         """
