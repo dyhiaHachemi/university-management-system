@@ -1,7 +1,3 @@
-"""
-avant de creer une faculte il faut avoir un directeur de faculte
-"""
-
 from classes.faculty import Faculty
 from classes.university import University
 from classes.depChief import DepChief
@@ -149,17 +145,13 @@ def faculty_menu (universite : University, university_director: UnivDirector):
                         chief_email = input("Entrez l'email du chef de departement: ").strip()
                         try:
                             dep_chief = DepChief(chief_name,chief_email,chief_phone_number)
-                            print("1111")
                         except Exception as e:
                             print(f"Impossible de creer l'objet DepChief {e}")
 
                         # set departement chief par le directeur de faculte              
                         try:             
-                            print("2222")
                             fac_director.set_dep_chief(dep_chief, dep_name)
-                            print("33333")
                         except Exception as e :
-                            print("44444")
                             print(f"Erreur de la definition du chef de departement {e}")   
             case "0" :
                 print("Retour au menu principal!")
